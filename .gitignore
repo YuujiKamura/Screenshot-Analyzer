@@ -1,3 +1,9 @@
+# Screenshot related files
+dev_history/screenshots/
+dev_history/context/*.json
+screenshots/
+*.png
+
 # Python
 __pycache__/
 *.py[cod]
@@ -22,8 +28,6 @@ wheels/
 
 # テスト結果
 test_results/
-screenshots/
-analysis_results/
 
 # 環境設定
 .env
@@ -53,4 +57,8 @@ Desktop.ini
 
 # ログファイル
 *.log
-logs/ 
+logs/
+
+# Output
+output/
+analysis_results/ 
