@@ -1,0 +1,130 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "mode": "mock_analysis",
+    "image_path": "test_images\\test_image.png"
+  },
+  "image_details": {
+    "file_info": {
+      "filename": "test_image.png",
+      "filepath": "C:\\Users\\yuuji\\pdfexjs\\test_images\\test_image.png",
+      "filesize_bytes": 2150,
+      "filesize_kb": 2.099609375,
+      "filesize_mb": 0.0020503997802734375,
+      "created_at": "2025-03-05T13:53:59.325807",
+      "modified_at": "2025-03-05T13:53:59.330528",
+      "extension": ".png"
+    },
+    "image_info": {
+      "width": 640,
+      "height": 480,
+      "resolution": "640x480",
+      "aspect_ratio": 1.3333333333333333,
+      "format": "PNG",
+      "orientation": "landscape",
+      "is_portrait": false,
+      "is_landscape": true,
+      "color_info": {
+        "mode": "RGB",
+        "has_alpha": false,
+        "is_grayscale": false,
+        "is_rgb": true,
+        "avg_color_rgb": [
+          255,
+          238,
+          238
+        ],
+        "avg_color_hex": "#ffeeee",
+        "brightness": 243.81981336805555,
+        "brightness_percent": 95.61561308551198,
+        "color_variance": 52.17175076529988
+      },
+      "aspect_ratio_name": "4:3（標準）"
+    }
+  },
+  "analysis": {
+    "objects": [
+      {
+        "label": "window",
+        "confidence": 0.92,
+        "bbox": {
+          "x": 64,
+          "y": 48,
+          "width": 512,
+          "height": 336
+        }
+      },
+      {
+        "label": "icon",
+        "confidence": 0.85,
+        "bbox": {
+          "x": 32,
+          "y": 48,
+          "width": 32,
+          "height": 32
+        }
+      },
+      {
+        "label": "text",
+        "confidence": 0.76,
+        "bbox": {
+          "x": 128,
+          "y": 72,
+          "width": 384,
+          "height": 24
+        }
+      }
+    ],
+    "ocr": {
+      "detected": true,
+      "confidence": 0.72,
+      "text": "サンプルテキスト - デバッグ用のモックデータです。",
+      "regions": [
+        {
+          "text": "サンプルテキスト",
+          "bbox": {
+            "x": 128,
+            "y": 72,
+            "width": 192,
+            "height": 24
+          },
+          "confidence": 0.78
+        },
+        {
+          "text": "デバッグ用のモックデータです。",
+          "bbox": {
+            "x": 128,
+            "y": 96,
+            "width": 256,
+            "height": 24
+          },
+          "confidence": 0.65
+        }
+      ]
+    },
+    "description": "これはデスクトップのスクリーンショットです。ウィンドウ、アイコン、およびテキストが表示されています。",
+    "tags": [
+      "スクリーンショット",
+      "デスクトップ",
+      "ウィンドウ",
+      "UI"
+    ],
+    "confidence": 0.87
+  },
+  "debug_info": {
+    "mock_data": true,
+    "model_used": null,
+    "color_analysis": {
+      "estimated_brightness": "bright",
+      "dominant_colors": [
+        "#ffeeee"
+      ],
+      "color_variance": "medium"
+    }
+  },
+  "performance": {
+    "analysis_time_seconds": 0.021780014038085938,
+    "analysis_time_ms": 21.780014038085938
+  },
+  "timestamp": "2025-03-05T14:13:13.859222"
+}

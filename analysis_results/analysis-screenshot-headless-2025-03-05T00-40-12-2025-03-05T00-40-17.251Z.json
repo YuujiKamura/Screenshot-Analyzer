@@ -1,0 +1,35 @@
+{
+  "timestamp": "2025-03-05T00-40-17.251Z",
+  "imageId": "screenshot-headless-2025-03-05T00-40-12",
+  "results": {
+    "metadata": {
+      "filename": "screenshot-headless-2025-03-05T00-40-12.png",
+      "filepath": "C:\\Users\\yuuji\\pdfexjs\\screenshots\\screenshot-headless-2025-03-05T00-40-12.png",
+      "filesize": 335887,
+      "filetype": ".png",
+      "timestamp": "2025-03-05T00:40:17.250Z",
+      "runtime_mode": "headless",
+      "version": "1.0.0"
+    },
+    "modelStatus": {
+      "mobilenet": "ヘッドレスモードでロード省略",
+      "cocossd": "ヘッドレスモードでロード省略",
+      "tesseract": "ヘッドレスモードでロード省略"
+    },
+    "headless_info": {
+      "timestamp": "2025-03-05T00:40:17.250Z",
+      "mode": "headless_mock_analysis",
+      "models_loaded": false,
+      "message": "ヘッドレスモードでは実際のモデルロードをスキップし、モックデータを使用しています"
+    },
+    "description": "これはデスクトップのスクリーンショットです。ウィンドウ、アイコン、およびタスクバーが表示されています。",
+    "confidence": 0.9,
+    "tags": [
+      "スクリーンショット",
+      "デスクトップ",
+      "コンピュータ",
+      "ウィンドウ"
+    ],
+    "analyzed_at": "2025-03-05T00:40:17.250Z"
+  }
+}

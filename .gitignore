@@ -1,9 +1,3 @@
-# Screenshot related files
-dev_history/screenshots/
-dev_history/context/*.json
-screenshots/
-*.png
-
 # Python
 __pycache__/
 *.py[cod]
@@ -36,9 +30,6 @@ env/
 venv/
 ENV/
 
-# YOLOモデル
-*.pt
-
 # IDE
 .idea/
 .vscode/
@@ -59,6 +50,8 @@ Desktop.ini
 *.log
 logs/
 
-# Output
-output/
-analysis_results/ 
+# 一時ファイル
+*.tmp
+*.bak
+*.swp
+*~ 
