@@ -34,5 +34,17 @@
     "terminal.integrated.persistentSessionReviveProcess": "never",
     "terminal.integrated.enableMultiLinePasteWarning": false,
     "terminal.integrated.rightClickBehavior": "selectWord",
-    "terminal.integrated.copyOnSelection": true
+    "terminal.integrated.copyOnSelection": true,
+    
+    // テーマ設定
+    "workbench.colorTheme": "Default Light Modern",
+    "workbench.preferredLightColorTheme": "Default Light Modern",
+    "workbench.preferredDarkColorTheme": "Default Dark Modern",
+    "workbench.colorCustomizations": {
+        "editor.background": "#ffffff",
+        "sideBar.background": "#f3f3f3",
+        "activityBar.background": "#2c2c2c",
+        "terminal.background": "#ffffff",
+        "terminal.foreground": "#000000"
+    }
 } 
