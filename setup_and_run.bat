@@ -3,24 +3,15 @@ REM スクリーンショット画像解析テストのセットアップと実�
 
 echo ===== スクリーンショット画像解析テストのセットアップと実行 =====
 
-REM 依存関係のインストール
-echo 依存関係をインストールしています...
-powershell -ExecutionPolicy Bypass -File "%~dp0install_dependencies.ps1"
+REM PowerShellの実行ポリシーを一時的に変更して実行
+powershell -NoProfile -ExecutionPolicy Bypass -Command "& {Set-Location '%~dp0'; Write-Host 'PowerShell環境を準備しています...' -ForegroundColor Cyan; . './install_dependencies.ps1'; if ($?) { . './run_screenshot_test.ps1' %* }}"
 
-REM インストールが成功したか確認
-if %ERRORLEVEL% NEQ 0 (
-    echo 依存関係のインストールに失敗しました。
-    goto :end
+if errorlevel 1 (
+    echo エラーが発生しました。
+    echo ログを確認してください。
+) else (
+    echo 処理が正常に完了しました。
 )
 
 echo.
-echo 依存関係のインストールが完了しました。テストを実行します...
-echo.
-
-REM テストの実行
-powershell -ExecutionPolicy Bypass -File "%~dp0run_screenshot_test.ps1" %*
-
-:end
-echo.
-echo 処理が完了しました。
 pause 

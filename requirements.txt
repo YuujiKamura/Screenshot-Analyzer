@@ -1,0 +1,22 @@
+# GUI関連
+PyQt5>=5.15.0
+pillow>=10.0.0
+
+# 画像処理・AI関連
+opencv-python>=4.5.0
+numpy>=1.20.0
+tensorflow>=2.8.0
+pytesseract>=0.3.9
+ultralytics>=8.0.0  # YOLOv8
+
+# スクリーンショット関連
+pyautogui>=0.9.54
+mss>=6.1.0
+
+# ユーティリティ
+pytest>=7.0.0
+pytest-qt>=4.0.0
+pyyaml>=6.0.0
+pyinstaller>=5.0.0
+tqdm>=4.64.0
+matplotlib>=3.5.0 

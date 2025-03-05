@@ -1,14 +1,38 @@
 # スクリーンショット画像解析テストを実行するPowerShellスクリプト
 
-# カレントディレクトリを設定
-Set-Location -Path $PSScriptRoot
+# エラー発生時に停止
+$ErrorActionPreference = "Stop"
 
-# 必要なディレクトリが存在することを確認
-if (-not (Test-Path -Path "test_results")) {
-    New-Item -Path "test_results" -ItemType Directory -Force
-    New-Item -Path "test_results/screenshots" -ItemType Directory -Force
-    New-Item -Path "test_results/analysis" -ItemType Directory -Force
-    New-Item -Path "test_results/debug" -ItemType Directory -Force
+# カレントディレクトリを設定
+try {
+    Set-Location -Path $PSScriptRoot -ErrorAction Stop
+    Write-Host "作業ディレクトリを設定しました: $PSScriptRoot" -ForegroundColor Cyan
+}
+catch {
+    Write-Host "ディレクトリの設定に失敗しました: $_" -ForegroundColor Red
+    exit 1
+}
+
+# 必要なディレクトリを作成
+$directories = @(
+    "test_results",
+    "test_results/screenshots",
+    "test_results/analysis",
+    "test_results/debug"
+)
+
+foreach ($dir in $directories) {
+    if (-not (Test-Path -Path $dir)) {
+        try {
+            New-Item -Path $dir -ItemType Directory -Force | Out-Null
+            Write-Host "ディレクトリを作成しました: $dir" -ForegroundColor Green
+        }
+        catch {
+            Write-Host "ディレクトリの作成に失敗しました: $dir" -ForegroundColor Red
+            Write-Host "エラー: $_" -ForegroundColor Red
+            exit 1
+        }
+    }
 }
 
 Write-Host "スクリーンショット画像解析テストを開始します..." -ForegroundColor Green
@@ -21,32 +45,37 @@ if (-not $testOption) {
 
 # テストコマンドを実行
 try {
-    if ($testOption -eq "all") {
-        Write-Host "すべてのテストを実行します" -ForegroundColor Cyan
-        python test_screenshot_analysis.py --test all
+    $pythonCmd = "python test_screenshot_analysis.py --test $testOption"
+    
+    switch ($testOption) {
+        "all" {
+            Write-Host "すべてのテストを実行します" -ForegroundColor Cyan
+        }
+        "screenshot" {
+            Write-Host "スクリーンショット撮影テストを実行します" -ForegroundColor Cyan
+        }
+        "analysis" {
+            Write-Host "スクリーンショット解析テストを実行します" -ForegroundColor Cyan
+        }
+        "debug" {
+            Write-Host "デバッグモードテストを実行します" -ForegroundColor Cyan
+        }
+        default {
+            Write-Host "無効なテストオプション: $testOption" -ForegroundColor Red
+            Write-Host "有効なオプション: all, screenshot, analysis, debug" -ForegroundColor Yellow
+            exit 1
+        }
     }
-    elseif ($testOption -eq "screenshot") {
-        Write-Host "スクリーンショット撮影テストを実行します" -ForegroundColor Cyan
-        python test_screenshot_analysis.py --test screenshot
-    }
-    elseif ($testOption -eq "analysis") {
-        Write-Host "スクリーンショット解析テストを実行します" -ForegroundColor Cyan
-        python test_screenshot_analysis.py --test analysis
-    }
-    elseif ($testOption -eq "debug") {
-        Write-Host "デバッグモードテストを実行します" -ForegroundColor Cyan
-        python test_screenshot_analysis.py --test debug
-    }
-    else {
-        Write-Host "無効なテストオプション: $testOption" -ForegroundColor Red
-        Write-Host "有効なオプション: all, screenshot, analysis, debug" -ForegroundColor Yellow
-        exit 1
-    }
+
+    # Pythonスクリプトを実行
+    Invoke-Expression $pythonCmd
 
     if ($LASTEXITCODE -eq 0) {
         Write-Host "テストが正常に完了しました" -ForegroundColor Green
-    } else {
+    }
+    else {
         Write-Host "テスト中にエラーが発生しました (終了コード: $LASTEXITCODE)" -ForegroundColor Red
+        exit $LASTEXITCODE
     }
 }
 catch {
@@ -55,5 +84,5 @@ catch {
 }
 
 # 結果フォルダのパスを表示
-Write-Host "テスト結果は以下のフォルダにあります:" -ForegroundColor Cyan
+Write-Host "`nテスト結果は以下のフォルダにあります:" -ForegroundColor Cyan
 Write-Host "  $((Resolve-Path 'test_results').Path)" -ForegroundColor Yellow 

@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "mode": "yolo_analysis",
+    "image_path": "test_images/test_image_1.png"
+  },
+  "image_details": {
+    "file_info": {
+      "filename": "test_image_1.png",
+      "filepath": "C:\\Users\\yuuji\\pdfexjs\\test_images\\test_image_1.png",
+      "filesize_bytes": 2260,
+      "filesize_kb": 2.20703125,
+      "filesize_mb": 0.002155303955078125,
+      "created_at": "2025-03-05T14:12:19.449081",
+      "modified_at": "2025-03-05T14:12:19.459640",
+      "extension": ".png"
+    },
+    "image_info": {
+      "width": 640,
+      "height": 480,
+      "resolution": "640x480",
+      "aspect_ratio": 1.3333333333333333,
+      "format": "PNG",
+      "orientation": "landscape",
+      "is_portrait": false,
+      "is_landscape": true,
+      "color_info": {
+        "mode": "RGB",
+        "has_alpha": false,
+        "is_grayscale": false,
+        "is_rgb": true,
+        "avg_color_rgb": [
+          254,
+          251,
+          251
+        ],
+        "avg_color_hex": "#fefbfb",
+        "brightness": 252.87893880208333,
+        "brightness_percent": 99.16821129493464,
+        "color_variance": 23.022156004662673
+      },
+      "aspect_ratio_name": "4:3（標準）"
+    }
+  },
+  "analysis": {
+    "objects": [],
+    "description": "この画像には特定のオブジェクトが検出されませんでした。",
+    "tags": [],
+    "confidence": 0.0,
+    "ocr": {
+      "detected": false,
+      "text": "",
+      "regions": []
+    }
+  },
+  "debug_info": {
+    "mock_data": false,
+    "model_used": "yolov8",
+    "color_analysis": {
+      "estimated_brightness": "bright",
+      "dominant_colors": [
+        "#fefbfb"
+      ],
+      "color_variance": "low"
+    }
+  },
+  "performance": {
+    "analysis_time_seconds": 0.20218563079833984,
+    "analysis_time_ms": 202.18563079833984
+  },
+  "timestamp": "2025-03-05T14:21:14.377486"
+}
